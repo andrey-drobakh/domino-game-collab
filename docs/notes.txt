@@ -1,0 +1,32 @@
+    Domino Game Collab Project Notes
+
+
+Description :
+- Domino game for 2 up to 4 players;
+
+- Game Terms:
+    - Bone/Tile
+    - Bone Half/End/Side
+    - Open Ends/Halves
+    - Hand
+    - Heap/Pile/Stock/Pack
+    - To Draw/Hit/Buy a bone from the Heap
+
+
+===========
+Development
+===========
+
+Components :
+- Backend
+- CLI
+- Runner
+
+Player Input types :
+- "42-3.,eg", "81" : not a 2-digit-max-is-6 string [NOT NORMAL]
+- "35" : 3 is incorrect (wrong) start digit
+- "40" : 4 is correct start digit, but it is NOT in hand
+- "40" : 2-digit-max-is-6 string, correct start digit, in hand [CORRECT]
+- special commands:
+    - "draw": take a bone from the heap
+    - "pass": pass the move
