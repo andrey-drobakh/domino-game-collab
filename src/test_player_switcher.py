@@ -3,7 +3,7 @@ from src.player_switcher import PlayerSwitcher, UserData
 
 # Test Driven Development (TDD)
 
-def test_player_switcher_1() :
+def test_1() :
     names = list( 'abcd' )
     ps = PlayerSwitcher( names )
 
@@ -23,16 +23,25 @@ def test_player_switcher_1() :
     assert ps.get_name() == 'a'
 
 
-def test_player_switcher_2() :
-    names = list( 'abcd' )
+def test_2() :
+    names = list( 'abcdefg' )
     ps = PlayerSwitcher( names )
 
     ps.mark_skipped( 'c' )
+    ps.mark_skipped( 'f' )
+    ps.mark_skipped( 'g' ) # добавил проверку
+
 
     ps.goto_next()
     ps.goto_next()
 
     assert ps.get_name() == 'd'
+
+    ps.goto_next()
+    ps.goto_next()
+    ps.goto_next() # добавил пропуск
+
+    assert ps.get_name() == 'b' # 'g' добавил проверку на предполагаемую 'b'
 
 
 
