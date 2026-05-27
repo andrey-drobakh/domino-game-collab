@@ -44,5 +44,24 @@ def test_2() :
     assert ps.get_name() == 'b' # 'g' добавил проверку на предполагаемую 'b'
 
 
+def test_3() :
+    names = list( 'abcd' )
+    ps = PlayerSwitcher( names )
 
+    assert ps.get_name() == 'a'
+
+    ps.goto_next()
+    assert ps.get_name() == 'b'
+
+    ps.goto_next()
+    assert ps.get_name() == 'c'
+
+    ps.goto_next()
+    assert ps.get_name() == 'd'
+
+    ps.mark_skipped( 'b' )
+    # Остались игроки 'acd'
+
+    ps.goto_next()
+    assert ps.get_name() == 'a'
 
