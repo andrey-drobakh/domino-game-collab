@@ -65,3 +65,18 @@ def test_3() :
     ps.goto_next()
     assert ps.get_name() == 'a'
 
+
+def test_4() :
+    names = list( 'abcd' )
+    ps = PlayerSwitcher( names )
+
+    ps.goto_next()
+    ps.goto_next()
+
+    assert ps.get_name() == 'c'
+
+    ps.mark_skipped( 'b' )
+
+    ps.goto_next()
+
+    assert ps.get_name() == 'd'
