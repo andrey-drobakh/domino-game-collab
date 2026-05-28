@@ -20,7 +20,7 @@ class PlayerSwitcher :
         pass
 
     def _shift_index( self ) :
-        if self._index != len( self._names ) - 1 :
+        if self._index < len( self._names ) - 1 :
             self._index += 1
         else :
             self._index = 0
