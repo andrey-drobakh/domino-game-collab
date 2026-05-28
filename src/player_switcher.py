@@ -14,7 +14,10 @@ class PlayerSwitcher :
         return self._names[ self._index ]
 
     def mark_skipped( self, name : str ) :
+        skipped_element_index = self._names.index( name )
         self._names_to_status[ name ] = False
+        if skipped_element_index < self._index :
+            self._index -= 1
 
     def mark_unskipped( self, name : str ) :
         pass
