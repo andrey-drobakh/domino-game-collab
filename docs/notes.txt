@@ -30,3 +30,24 @@ Player Input types :
 - special commands:
     - "draw": take a bone from the heap
     - "pass": pass the move
+
+
+class PlayerSwitcher notes :
+    PlayerSwitcher :
+    - goto_next
+
+    SkippablePlayerSwitcher :
+    - PlayerSwitcher
+    - mark_skipped
+    - mark_unskipped
+
+    1) BidirectionalPlayerSwitcher : # ходить в оба направления
+    - PlayerSwitcher
+    - goto_previous
+
+    2) BidirectionalPlayerSwitcher : # ходить в оба направления
+    - goto_next
+    - switch_direction/toggle_direction
+
+    JumpingPlayerSwitcher :
+    - jump( player_name )

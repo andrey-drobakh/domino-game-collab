@@ -1,4 +1,7 @@
-from src.player_switcher import PlayerSwitcher, UserData
+from src.player_switcher import \
+    PlayerSwitcher, \
+    SkippablePlayerSwitcher, \
+    UserData
 
 
 # Test Driven Development (TDD)
@@ -25,7 +28,7 @@ def test_1() :
 
 def test_2() :
     names = list( 'abcdefg' )
-    ps = PlayerSwitcher( names )
+    ps = SkippablePlayerSwitcher( names )
 
     ps.mark_skipped( 'c' )
     ps.mark_skipped( 'f' )
@@ -46,7 +49,7 @@ def test_2() :
 
 def test_3() :
     names = list( 'abcd' )
-    ps = PlayerSwitcher( names )
+    ps = SkippablePlayerSwitcher( names )
 
     assert ps.get_name() == 'a'
 
@@ -68,7 +71,7 @@ def test_3() :
 
 def test_4() :
     names = list( 'abcd' )
-    ps = PlayerSwitcher( names )
+    ps = SkippablePlayerSwitcher( names )
 
     ps.goto_next()
     ps.goto_next()

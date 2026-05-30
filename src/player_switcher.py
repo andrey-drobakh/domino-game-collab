@@ -13,6 +13,17 @@ class PlayerSwitcher :
     def get_name( self ) -> str :
         return self._names[ self._index ]
 
+    def _shift_index( self ) :
+        if self._index < len( self._names ) - 1 :
+            self._index += 1
+        else :
+            self._index = 0
+
+
+class SkippablePlayerSwitcher( PlayerSwitcher ) :
+    def __init__( self, player_names ) :
+        super().__init__( player_names )
+
     def mark_skipped( self, name : str ) :
         skipped_element_index = self._names.index( name )
         self._names_to_status[ name ] = False
@@ -21,12 +32,6 @@ class PlayerSwitcher :
 
     def mark_unskipped( self, name : str ) :
         pass
-
-    def _shift_index( self ) :
-        if self._index < len( self._names ) - 1 :
-            self._index += 1
-        else :
-            self._index = 0
 
 
 class UserData :
